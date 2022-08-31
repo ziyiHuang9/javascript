@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            .sliderbar{
+                width:100px;
+                height:50px;
+                background-color: blue;
+                position:absolute;
+            }
+            .con {
+                display:none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="sliderbar">
+            <span>-></span>
+            <div class="con">问题反馈</div>
+        </div>
+        <script>
+            var sliderbar = document.querySelector('.sliderbar');
+            var con = document.querySelector('.con');
+            sliderbar.addEventListener('mouseenter',function(){
+                animate(con,-160,function(){
+                    sliderbar.children[0].innerHTML = '->';
+                });
+            })
+            sliderbar.addEventListener('mouseleave',function(){
+                animate(con,0,function(){
+                    sliderbar.children[0].innerHTML = '<-';
+                });
+            })
+            function animate(obj,target,callback){
+                clearInterval(obj.time);//清除以前的定时器以保证只有一个定时器执行
+                obj.time = setInterval(function(){
+                if(obj.offsetLeft==target){
+                    clearInterval(time);
+                    if(callback){
+                        callback();//如果传入了函数，则调用
+                    }
+                }
+                obj.style.left = obj.offsetLeft + 10 +'px';
+            },30)}
+        </script>
+    </body>
+    </html>

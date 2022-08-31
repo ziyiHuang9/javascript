@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+<!--    <script>
+        var age = prompt('请输入你的年龄');
+        var sex = prompt('请输入你的性别');
+        var name = prompt('请输入你的名字');
+
+    </script>-->
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <table cellspacing="0">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>成绩</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <script>
+            var datas=[{
+                name:'wei',
+                score:100,
+            },
+            {
+                name:'hong',
+                score:99,
+            },
+            {
+                name:'fu',
+                score:98,
+            }
+        ]
+        var tbody=document.querySelector('tbody');
+        for(var i=0;i<datas.length;i++){
+            var tr=document.createElement('tr');
+            tbody.appendChild(tr);
+            for(var k in datas[i]){//遍历对象属性用for in
+                var td = document.createElement('td');
+                td.innerHTML=datas[i][k];
+                tr.appendChild(td);
+            }
+            var td = document.createElement('td');
+            td.innerHTML = '<a href="javascript:;">删除</a>';
+            tr.appendChild(td);
+        }
+        var as = document.querySelectorAll('a');
+        for(var i = 0;i<as.length;i++){
+            as[i].onclick = function(){
+                tbody.removeChild(this.parentNode.parentNode)
+            }
+        }
+        </script>
+    </body>
+</html>

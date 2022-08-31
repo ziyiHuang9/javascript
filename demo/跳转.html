@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <button>点击</button>
+        <div></div>
+        <script>
+            var btn = document.querySelector('button');
+            var div = document.querySelector('div');
+            var time = 5;
+            btn.addEventListener('click',function(){
+                location.href='http:/www.itcast.cn';
+            })
+            setInterval(function(){
+                if(time==0){
+                    location.href='http:/www.itcast.cn';
+                }
+                else{
+                    div.innerHTML=time+'tiaozhuan';
+                    time--;
+                }
+            },1000);
+        </script>
+    </body>
+    </html>

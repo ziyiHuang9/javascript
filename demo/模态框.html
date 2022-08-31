@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            .login{
+                display:none;
+            }
+            .login-bg{
+                display: none;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class = "login-header"><a id = "link" href = "javascript:;">点击，弹出登录框</a></div>
+        <div id = "login" class = "login">
+            <div id = "title" class = "login-title">登陆会员
+                <span><a id="closeBtn" href = "javascript:void(0);" class = "close-login">关闭</a></span>
+            </div>
+            <div class="login-input-content">
+                <div class = "login-input">
+                    <label>用户名：</label>
+                    <input type = "password" placeholder="请输入用户名" name = "info[username]" id = "username" class="">
+                </div>
+                <div class = "login-input">
+                    <label>登陆密码：</label>
+                    <input type = "password" placeholder="请输入用户名" name = "info[username]" id = "password" class="">
+                </div>
+            </div>
+            <div id="loginBtn" class = "login-button"><a href="javascript:void(0);" id = "login-button-submit"></a></div>
+        </div>
+        <div id="bg" class = "login-bg"></div>
+    </body>
+    <script>
+        var login = document.querySelector('.login');
+        var mask = document.querySelector('.login-bg');
+        var link = document.querySelector('#link');
+        var closenBtn = document.querySelector('#closeBtn');
+        var title = document.querySelector('#title');
+        link.addEventListener('click',function(){
+            //mask.style.display = 'block';
+            login.style.display = 'block';
+        })
+        closeBtn.addEventListener('click',function(){
+            //mask.style.display = 'none';
+            login.style.display = 'none';
+        })
+        // title.addEventListener('mousedown',function (e){//鼠标按下，触发事件
+        //     var x = e.pageX - login.offsetLeft;
+        //     var y = e.pageY - login.offsetTop;
+        // })
+        //     document.addEventListener('mousemove',move)
+        //     function move(e){
+        //         login.style.left = e.pageX - x + 'px';
+        //         login.style.top = e.pageY - y + 'px';
+        //     }
+        //     document.addEventListener('mouseup',function(){
+        //         document.removeEventListener('mousemove',move);
+        //     })
+    </script>
+    </html>

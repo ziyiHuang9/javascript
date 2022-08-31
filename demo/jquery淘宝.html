@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            #content div{
+                display: none;
+            }
+        </style>
+        <script src="jquery.js"></script>
+        <script>
+            $(function(){
+                $("#left li").mouseover(function(){
+                    var index = $(this).index();
+                    $("#content div").eq(index).show();
+                    $("#content div").eq(index).siblings().hide();
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <ul id="left">
+                <li><a href="#">女靴</a></li>
+                <li><a href="#">雪地靴</a></li>
+                <li><a href="#">女靴</a></li>
+                <li><a href="#">棉服</a></li>
+            </ul>
+            <div id="content">
+                <div>
+                    <a href="#"><img src="images/1.jpg" width="200" height="250"></a>
+                </div>
+                <div>
+                    <a href="#"><img src="images/2.jpg" width="200" height="250"></a>
+                </div>
+                <div>
+                    <a href="#"><img src="images/a.jpg" width="200" height="250"></a>
+                </div>
+                <div>
+                    <a href="#"><img src="images/c.jpg" width="200" height="250"></a>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>  

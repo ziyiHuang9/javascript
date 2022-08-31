@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            div{
+                position: absolute;
+                width:100px;
+                height:100px;
+                background-color: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <button class="btn">click</button>
+        <div></div> 
+        <script>
+            var btn = document.querySelector('.btn');
+            function animate(obj,target,callback){
+                clearInterval(obj.time);//清除以前的定时器以保证只有一个定时器执行
+                obj.time = setInterval(function(){
+                if(obj.offsetLeft==target){
+                    clearInterval(time);
+                    if(callback){
+                        callback();//如果传入了函数，则调用
+                    }
+                }
+                obj.style.left = obj.offsetLeft + 10 +'px';
+            },30)}
+            var div = document.querySelector('div');
+            btn.addEventListener('click',function(){
+                animate(div,300,function(){
+                    alert('helle');
+                })
+            })
+        </script>
+    </body>
+    </html>

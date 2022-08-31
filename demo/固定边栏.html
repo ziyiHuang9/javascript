@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            .zhu{
+                background-color: blue;
+                width:1900px;
+                height:600px;
+            }
+            .ban{
+                background-color: aquamarine;
+                width:1900px;
+                height:2000px;
+            }
+            .slider-bar{
+                background-color: violet;
+                position: absolute;
+                left:50%;
+                margin-left: 900px;
+                width: 50px;
+                height:130px;
+                top:300px;
+            }
+            span{
+                display: none;
+                position: absolute;
+                bottom: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="slider-bar">
+            <span class="goBack">返回顶部</span>
+        </div>
+        <div class="zhu">主体区</div>
+        <div class="ban">banner</div>
+        <script>
+            var sliderbar = document.querySelector('.slider-bar');
+            var banner = document.querySelector('.ban');
+            var bannerTop = banner.offsetTop;
+            var sliderbarTop = sliderbar.offsetTop - bannerTop; 
+            console.log(bannerTop);
+            document.addEventListener('scroll',function(){
+                if(window.pageYOffset >= bannerTop){
+                    sliderbar.style.position = 'fixed';
+                    sliderbar.style.top = sliderbarTop + 'px';
+                }else{
+                    sliderbar.style.position = 'absolute';
+                }
+            })
+        </script>
+    </body>
+    </html>

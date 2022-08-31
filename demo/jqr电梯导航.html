@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .fixtool{
+        position: fixed;
+        top: 100px;
+        left: 50%;
+        margin-left: -676px;
+        width: 66px;
+        background-color: #fff;
+        display: none;
+    }
+    .fixtool li{
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+        font-size: 12px;
+        border-bottom: 1px solid #ccc;
+    }
+    </style>
+</head>
+<body>
+    <div class="fixtool">
+        <ul>
+            <li class="current">家用电器</li>
+            <li>家用电器</li>
+            <li>家用电器</li>
+            <li>家用电器</li>
+            <li>家用电器</li>
+        </ul>
+    </div>
+    <script>
+        //显示隐藏电梯导航
+        $(function(){
+            var toolTop = $(".recommend").offset().top; 
+            toggleTool();
+            function toggleTool(){
+                if($(document).scrollTop()>=){
+                    $(".fixedtoll").fadeIn();
+                }else{
+                    $(".fixedtoll").fadeOut();
+                }
+            }
+            $(window).scroll(function(){
+                toggleTool();
+            })
+        })
+        //点击电梯导航页面可以滚动到相应
+        $(".fixedtool li").click(function(){
+            var cur = $(".floor .w").eq($(this).index()).offset().top;
+            $("body,html").stop().animate({
+                scrollTop:current
+            });
+        })
+        //点击之后，让当前的小li 添加current 类名
+        $(this).addClass("current").siblings().removeClass();
+    </script>
+</body>
+</html>

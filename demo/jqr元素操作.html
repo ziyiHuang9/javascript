@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+</head>
+<body>
+    <div class="1">1</div>
+    <div>2</div>
+    <div>3</div>
+    <ul>
+
+    </ul>
+    <script>
+        $(function(){
+            //隐式迭代
+            $("div").css("color","red")
+            //遍历
+            var arr = ["red", "green", "blue"];
+            $("div").each(function(index,domEle){
+                $(domEle).css("color",arr[index]);//把dom对象换成jquery对象
+            })
+            //另一种迭代 $.each($("div"),function(i,ele))
+            //创建元素
+            var li = $("<li>9</li>");
+            //内部添加，
+            $("ul").append(li);//放在内部元素的后面
+            $("ul").prepend(li);//放在内部元素的前面
+            //外部添加，
+            var div= $("<div>8</div>");
+            $(".1").after(div);//放在目标的后面
+            $(".1").before(div);//放在目标的前面
+            //删除元素
+            //$("ul").remove();//可以删除匹配的元素
+            //$("ul").empty();//删除匹配元素的子节点
+            //$("ul").html("");
+        })
+    </script>
+</body>
+</html>

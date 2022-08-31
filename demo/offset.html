@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            .father{
+                width:200px;
+                height:200px;
+                background-color: pink;
+                margin:150px;
+            }
+            .son {
+                width:100px;
+                height:100px;
+                background-color: purple;
+                margin-left: 45px;
+            }
+            .box {
+                width: 200px;
+                height: 200px;
+                background-color: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box"></div>
+        <script>
+            var box = document.querySelector('.box');
+            box.addEventListener('click',function(e){
+                var x = e.pageX - this.offsetLeft;
+                var y = e.pageY - this.offsetTop;
+                this.innerHTML = 'x坐标是' + x +'y坐标是'+y;
+            })
+        </script>
+    </body>
+    </html>
